@@ -4,72 +4,97 @@
 @import "../settings/keyframes";
 
 .header {
-    width: 100%;
-    height: 110vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 3px 3px 13px 3px rgba($color: #000000, $alpha: 0.1);
-    transition: 1.2s ease-in;
+  width: 100%;
+  height: 110vh;
+  position: relative;
+  box-shadow: 3px 3px 13px 3px rgba($color: #000000, $alpha: 0.1);
+  transition: 1.2s ease-in;
 
-    .active {
-        left: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .active {
+    left: 100%;
+  }
+
+  &__nameTitle {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    text-transform: uppercase;
+    @include fontDeclaration($fontGilroyHeavy, 64px, $colorLightDark);
+    animation: show 0.8s 1s linear both,
+      textGlow 5s 1s linear infinite alternate;
+
+    @include mobile {
+      top: 30%;
+      font-size: 32px;
+      color: $colorWhite;
+      text-shadow: 0 0 10px $colorBlue, 0 0 15px $colorPink, 0 0 40px $colorBlue, 0 0 60px $colorPink, 0 0 160px $colorBlue;
+      animation: show 0.8s 1s linear both,
     }
+  }
 
-    &__nameTitle {
-        position: absolute;
+  &__jobTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    @include fontDeclaration($fontPoppins, 18px, $colorDark);
+    animation: show 0.8s 3s linear both;
+    letter-spacing: 15px;
+
+    @include mobile {
         top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        text-transform: uppercase;
-        @include fontDeclaration($fontGilroyHeavy, 64px, $colorLightDark);
-        animation: show .8s 1s linear both, textGlow 5s 1s linear infinite alternate;
+        width: 100%;
+        text-align: center;
+        letter-spacing: 5px;
+        font-size: 15px;
     }
 
-    &__jobTitle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        @include fontDeclaration($fontPoppins, 18px, $colorDark);
-        animation: show .8s 3s linear both;
-        letter-spacing: 15px;
+    span {
+      color: $colorBlue;
+      animation: colorChangeSpan 3s 2.8s infinite alternate-reverse;
+    }
+  }
 
-        span {
-            color: $colorBlue;
-            animation: colorChangeSpan 3s 2.8s infinite alternate-reverse;
-        }
+  &__scrollDownIcon {
+    position: absolute;
+    top: 90vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    button {
+      width: 20px;
+      height: 35px;
+      background-color: transparent;
+      border: 2px solid $colorDark;
+      border-radius: 10px;
+      opacity: 0;
+      animation: show 0.8s 3s linear both;
+
+      display: flex;
+      justify-content: center;
+
+      @include mobile {
+          top: auto;
+          bottom: 5vh;
+      }
     }
 
-    &__scrollDownIcon {
-        position: absolute;
-        top: 90vh;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        button {
-            width: 20px;
-            height: 35px;
-            background-color: transparent;
-            border: 2px solid $colorDark;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            opacity: 0;
-            animation: show .8s 3s linear both;
-        }
-
-        .dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background-color: $colorBlue;
-            margin-top: 5px;
-            display: block;
-            animation: moveScrollDot 1s linear infinite, colorChangeSpan 3s infinite alternate-reverse;
-        }
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: $colorBlue;
+      margin-top: 5px;
+      display: block;
+      animation: moveScrollDot 1s linear infinite,
+        colorChangeSpan 3s infinite alternate-reverse;
     }
+  }
 }
