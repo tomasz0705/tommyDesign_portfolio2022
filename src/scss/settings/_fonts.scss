@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Gilroy-Heavy';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Gilroy-Heavy'), url('../../fonts/Gilroy-Heavy.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Gilroy-Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Gilroy-Light'), url('../../fonts/Gilroy-Light.woff') format('woff');
+}
+
+$fontGilroyHeavy: 'Gilroy-Heavy', sans-serif;
+$fontGilroyLight: 'Gilroy-Light', sans-serif;
+$fontPoppins: 'Poppins', sans-serif;
+$fontRoboto: 'Roboto', sans-serif;
