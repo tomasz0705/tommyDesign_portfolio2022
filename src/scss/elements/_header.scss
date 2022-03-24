@@ -24,6 +24,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+    z-index: 1;
     text-transform: uppercase;
     @include fontDeclaration($fontGilroyHeavy, 64px, $colorLightDark);
     animation: show 0.8s 1s linear both,
@@ -33,8 +34,9 @@
       top: 30%;
       font-size: 32px;
       color: $colorWhite;
-      text-shadow: 0 0 10px $colorBlue, 0 0 15px $colorPink, 0 0 40px $colorBlue, 0 0 60px $colorPink, 0 0 160px $colorBlue;
-      animation: show 0.8s 1s linear both,
+      text-shadow: 0 0 10px $colorBlue, 0 0 15px $colorPink, 0 0 40px $colorBlue,
+        0 0 60px $colorPink, 0 0 160px $colorBlue;
+      animation: show 0.8s 1s linear both;
     }
   }
 
@@ -42,6 +44,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 1;
     transform: translate(-50%, -50%);
     opacity: 0;
     @include fontDeclaration($fontPoppins, 18px, $colorDark);
@@ -49,17 +52,36 @@
     letter-spacing: 15px;
 
     @include mobile {
-        top: 40%;
-        width: 100%;
-        text-align: center;
-        letter-spacing: 5px;
-        font-size: 15px;
+      top: 40%;
+      width: 100%;
+      text-align: center;
+      letter-spacing: 5px;
+      font-size: 15px;
     }
 
     span {
       color: $colorBlue;
       animation: colorChangeSpan 3s 2.8s infinite alternate-reverse;
     }
+  }
+
+  svg {
+    width: 180px;
+    height: 150px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  svg .draw {
+    stroke: $colorBlue;
+    stroke-width: 2px;
+    fill: transparent;
+    stroke-dasharray: 3200;
+    stroke-dashoffset: 3200;
+    animation: animate 2s linear both, colorAnimation 0.5s 2.8s linear both,
+      colorChange 3s 2.8s linear infinite alternate-reverse;
   }
 
   &__scrollDownIcon {
@@ -81,8 +103,8 @@
       justify-content: center;
 
       @include mobile {
-          top: auto;
-          bottom: 5vh;
+        top: auto;
+        bottom: 5vh;
       }
     }
 
